@@ -10,14 +10,15 @@ before_install:
 - git config --global user.name "sjfkai"
 - git config --global user.email "sjfkai@163.com"
 - npm install -g hexo-cli
+- git clone -b gh-pages https://$REPO_TOKEN@github.com/sjfkai/blog.git .deploy_git
 install:
 - npm i
 script:
 - hexo clean
 - hexo generate
 after_success:
-- cd ./public
-- git init
+- cp -R public/* .deploy_git
+- cd .deploy_git
 - git add --all .
 - git commit -m "Auto Build"
-- git push --quiet --force https://$REPO_TOKEN@github.com/sjfkai/blog.git gh-pages
+- git push origin gh-pages
