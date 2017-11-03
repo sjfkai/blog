@@ -78,7 +78,7 @@ theme: anatole
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:sjfkai/blog.git
+  # repo: 123@123.com  通过环境变量配置
   branch: gh-pages
 
 archive_generator:
