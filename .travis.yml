@@ -1,0 +1,23 @@
+language: node_js
+node_js: stable
+branches:
+  only:
+  - master
+cache:
+  directories:
+  - node_modules
+before_install:
+- git config --global user.name "sjfkai"
+- git config --global user.email "sjfkai@163.com"
+- npm install -g hexo-cli
+install:
+- npm i
+script:
+- hexo clean
+- hexo generate
+after_success:
+- cd ./public
+- git init
+- git add --all .
+- git commit -m "Auto Build"
+- git push --quiet --force https://$REPO_TOKEN@github.com/sjfkai/blog.git gh-pages
