@@ -4,7 +4,6 @@ date: 2018-08-17 15:16:00
 tags:
 ---
 
-# Windows系统下的Linux开发环境（WSL+zsh+tmux）
 
 ## 安装 WSL（Windows Subsystem for Linux）
 
