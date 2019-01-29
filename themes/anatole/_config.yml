@@ -1,0 +1,26 @@
+# Blog
+keywords: blog,Just Blog,sjfkai,前端,大前端,程序员
+author: sjfkai,sjfkai@gmail.com
+# description: Nothing lasts forever.
+avatar: /images/logo.png
+
+# Social Accounts
+twitter: 
+rss: 
+weibo: 
+instagram: 
+github: https://github.com/sjfkai
+facebook: 
+
+# Comment
+duoshuo: 
+disqus: 
+gentie: 
+gitalk:
+  on: true
+  clientID: 42fc6cc03e9748504521
+  clientSecret: 276e368ccf374058acd40e6e5c9dc9589e08460d
+  repo: blog
+  owner: sjfkai
+  admin: sjfkai
+  distractionFreeMode: true
