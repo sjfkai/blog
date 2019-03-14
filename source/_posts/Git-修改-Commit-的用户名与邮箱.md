@@ -1,6 +1,6 @@
 ---
 title: Git 修改 Commit 的用户名与邮箱
-tags: Git
+tags: git
 date: 2019-03-01 14:09:56
 ---
 

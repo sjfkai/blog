@@ -1,7 +1,11 @@
 ---
 title: 构建 React 组件并发布到 NPM
 date: 2019-03-13 19:14:41
-tags: React webpack npm
+tags: 
+  - 前端
+  - react
+  - webpack
+  - npm
 ---
 
 平时我们开发前端项目，大多都是直接构建一个可以访问的前端项目。如果我们需要开发一个 `React 组件`供别人引用，应该怎样做呢？

@@ -2,6 +2,7 @@
 title: 通过travis自动部署hexo博客到github pages
 date: 2017-11-04 17:19:00
 tags:
+  - 前端
 ---
 
 ## 背景

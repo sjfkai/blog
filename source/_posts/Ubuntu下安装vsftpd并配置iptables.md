@@ -2,6 +2,7 @@
 title: Ubuntu下安装vsftpd并配置iptables
 date: 2015-04-07 19:54:10
 tags:
+  - linux
 ---
 
 ### 前言

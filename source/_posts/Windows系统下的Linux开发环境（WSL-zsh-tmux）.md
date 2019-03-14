@@ -2,6 +2,9 @@
 title: Windows系统下的Linux开发环境（WSL+zsh+tmux）
 date: 2018-08-17 15:16:00
 tags:
+  - linux
+  - windows
+  - wsl
 ---
 
 

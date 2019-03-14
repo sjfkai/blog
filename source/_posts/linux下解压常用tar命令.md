@@ -2,6 +2,7 @@
 title: linux下解压常用tar命令
 date: 2015-05-04 19:55:56
 tags:
+  - linux
 ---
 
 _原谅我总是记不住_

@@ -2,6 +2,9 @@
 title: Highcharts XSS攻击简析与修复
 date: 2018-10-18 13:42:03
 tags:
+  - 前端
+  - html
+  - 安全
 ---
 
 最近工作上接手的一个项目使用到了[Highcharts](https://www.highcharts.com/)。
