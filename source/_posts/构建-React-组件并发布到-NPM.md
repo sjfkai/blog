@@ -181,7 +181,7 @@ module.exports = {
 };
 ```
 
-你可能会发现，这里的配置与 `webpack.dev.js` 几乎是一样的，你可以使用 [webpack-merge](https://www.npmjs.com/package/webpack-merge) 来减少耦合。
+你可能会发现，这里的配置与 `webpack.dev.js` 几乎是一样的，你可以使用 [webpack-merge](https://www.npmjs.com/package/webpack-merge) 来减少代码冗余。
 
 `package.json` 中增加 `scripts`:
 
