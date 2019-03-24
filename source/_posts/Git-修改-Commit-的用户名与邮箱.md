@@ -4,10 +4,18 @@ tags: git
 date: 2019-03-01 14:09:56
 ---
 
+对于 git 的用户名与邮箱，我们大多数人都有两套，一套公司账户平时工作用和一套个人账户用于业余项目。而我又常常在 commit 以后才发现用户名与邮箱设置错了。本文总结了如何修改 Commit 的用户名与邮箱。
 
-原文：[Stackoverflow: How to change the commit author for one specific commit?](https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commit/28845565)
+## 如何设置用户名与邮箱
 
-# Git 修改 Commit 的用户名与邮箱
+```sh
+$ git config user.name "Author Name"
+$ git config user.email email@address.com
+```
+
+上面的命令只会修改当前项目的配置。如果需要也可以增加 `--global` 选项来修改当前系统用户的默认配置。
+
+## 修改 Commit 的用户名与邮箱
 
 **注意： 只建议修改未 push 的 commit。**
 
@@ -43,3 +51,12 @@ date: 2019-03-01 14:09:56
 1. rebase 结束
 1. 如果需要更新到远程仓库， 使用 `git push -f`（请确保修改的commit 不会影响其他人）
 
+## 参考文章
+
+[Stackoverflow: How to change the commit author for one specific commit?](https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commit/28845565)
+
+---
+
+欢迎关注公众号 “大前端开发者”。给你带来更多的前端技术与资讯
+
+![qrCode](/images/qrcode_small.jpg)
