@@ -170,10 +170,10 @@ body {
 * [Android浏览器下line-height垂直居中为什么会偏离？](https://www.zhihu.com/question/39516424/answer/274374076)
 
 
+---
 
+欢迎关注公众号 “大前端开发者”。给你带来更多的前端技术与资讯
 
-
-
-
+![qrCode](/images/qrcode_small.jpg)
 
 
