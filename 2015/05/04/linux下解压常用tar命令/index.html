@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="sjfkai,sjfkai@gmail.com"><title>linux下解压常用tar命令 · Just Blog</title><meta name="description" content="原谅我总是记不住
+tar
+格式： tar [选项] [文件目录列表]
+
+功能： 对文件目录进行打包备份
+
+选项：
+
+
+12345678-c 建立新的归档文件-r 向归档文件末尾追加文件-x 从归档文件中解出文件-O 将文件解开到标准输出-v 处理过程中输出相关信息-f 对普通文件操作-z 调用gzi"><meta name="keywords" content="blog,Just Blog,sjfkai,前端,大前端,程序员"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-110880274-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-110880274-1');</script></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Just Blog</a></h3></div></div><ul class="social-links"><li><a href="http://github.com/sjfkai"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div><script>var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1267679219'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1267679219%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/logo.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>linux下解压常用tar命令</a></h3></div><div class="post-content"><p><em>原谅我总是记不住</em></p>
+<h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><ul>
+<li><p>格式： <code>tar [选项] [文件目录列表]</code></p>
+</li>
+<li><p>功能： 对文件目录进行打包备份</p>
+</li>
+<li><p>选项：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-c 建立新的归档文件</span><br><span class="line">-r 向归档文件末尾追加文件</span><br><span class="line">-x 从归档文件中解出文件</span><br><span class="line">-O 将文件解开到标准输出</span><br><span class="line">-v 处理过程中输出相关信息</span><br><span class="line">-f 对普通文件操作</span><br><span class="line">-z 调用gzip来压缩归档文件，与-x联用时调用gzip完成解压缩</span><br><span class="line">-Z 调用compress来压缩归档文件，与-x联用时调用compress完成解压缩</span><br></pre></td></tr></table></figure>
+<p><strong>再白痴一点说</strong></p>
+<p><code>xxx.tar.gz</code> 用 <code>tar -zxvf xxx.tar.gz</code></p>
+<p><code>xxx.tar.bz2</code> 用 <code>tar -jxvf xxx.tar.bz2</code></p>
+<p>参考 <a href="http://www.jb51.net/LINUXjishu/43356.html" target="_blank" rel="noopener">http://www.jb51.net/LINUXjishu/43356.html</a></p>
+<hr>
+<h2 id="一些典型的格式"><a href="#一些典型的格式" class="headerlink" title="一些典型的格式"></a>一些典型的格式</h2><p>转自<a href="http://www.cnblogs.com/eoiioe/archive/2008/09/20/1294681.html" target="_blank" rel="noopener">http://www.cnblogs.com/eoiioe/archive/2008/09/20/1294681.html</a></p>
+<h5 id="tar-1"><a href="#tar-1" class="headerlink" title=".tar"></a>.tar</h5><ul>
+<li><p>解包：<code>tar xvf FileName.tar</code></p>
+</li>
+<li><p>打包：<code>tar cvf FileName.tar DirName</code></p>
+<p><strong>（tip：tar是打包，不是压缩！）</strong></p>
+</li>
+</ul>
+<h5 id="gz"><a href="#gz" class="headerlink" title=".gz"></a>.gz</h5><ul>
+<li><p>解压1：<code>gunzip FileName.gz</code></p>
+</li>
+<li><p>解压2：<code>gzip -d FileName.gz</code></p>
+</li>
+<li><p>压缩：<code>gzip FileName</code></p>
+</li>
+</ul>
+<h5 id="tar-gz-和-tgz"><a href="#tar-gz-和-tgz" class="headerlink" title=".tar.gz 和 .tgz"></a>.tar.gz 和 .tgz</h5><ul>
+<li>解压：<code>tar zxvf FileName.tar.gz</code></li>
+<li>压缩：<code>tar zcvf FileName.tar.gz DirName</code></li>
+</ul>
+<h5 id="bz2"><a href="#bz2" class="headerlink" title=".bz2"></a>.bz2</h5><ul>
+<li>解压1：<code>bzip2 -d FileName.bz2</code></li>
+<li>解压2：<code>bunzip2 FileName.bz2</code></li>
+<li>压缩：<code>bzip2 -z FileName</code></li>
+</ul>
+<h5 id="tar-bz2"><a href="#tar-bz2" class="headerlink" title=".tar.bz2"></a>.tar.bz2</h5><ul>
+<li>解压：<code>tar jxvf FileName.tar.bz2</code></li>
+<li>压缩：<code>tar jcvf FileName.tar.bz2 DirName</code> </li>
+</ul>
+<h5 id="bz"><a href="#bz" class="headerlink" title=".bz"></a>.bz</h5><ul>
+<li>解压1：<code>bzip2 -d FileName.bz</code></li>
+<li>解压2：<code>bunzip2 FileName.bz</code></li>
+<li>压缩：未知</li>
+</ul>
+<h5 id="tar-bz"><a href="#tar-bz" class="headerlink" title=".tar.bz"></a>.tar.bz</h5><ul>
+<li>解压：<code>tar jxvf FileName.tar.bz</code></li>
+<li>压缩：未知 </li>
+</ul>
+<h5 id="Z"><a href="#Z" class="headerlink" title=".Z"></a>.Z</h5><ul>
+<li>解压：<code>uncompress FileName.Z</code></li>
+<li>压缩：<code>compress FileName</code></li>
+</ul>
+<h5 id="tar-Z"><a href="#tar-Z" class="headerlink" title=".tar.Z"></a>.tar.Z</h5><ul>
+<li>解压：<code>tar Zxvf FileName.tar.Z</code></li>
+<li>压缩：<code>tar Zcvf FileName.tar.Z DirName</code></li>
+</ul>
+<h5 id="zip"><a href="#zip" class="headerlink" title=".zip"></a>.zip</h5><ul>
+<li>解压：<code>unzip FileName.zip</code></li>
+<li>压缩：<code>zip FileName.zip DirName</code> </li>
+</ul>
+<h5 id="rar"><a href="#rar" class="headerlink" title=".rar"></a>.rar</h5><ul>
+<li>解压：<code>rar x FileName.rar</code></li>
+<li>压缩：<code>rar a FileName.rar DirName</code></li>
+</ul>
+<h5 id="rpm"><a href="#rpm" class="headerlink" title=".rpm"></a>.rpm</h5><ul>
+<li>解包：<code>rpm2cpio FileName.rpm | cpio -div</code> </li>
+</ul>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2015-05-04</span><i class="fa fa-tag"></i><a href="/tags/linux/" title="linux" class="tag">linux </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://blog.sjfkai.com/2015/05/04/linux下解压常用tar命令/,Just Blog,linux下解压常用tar命令,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/2015/05/29/将地址批量转换为经纬度/" title="将地址批量转换为经纬度" class="btn">上一篇</a></li><li class="next pagbuttons"><a role="navigation" href="/2015/04/07/Ubuntu下安装vsftpd并配置iptables/" title="Ubuntu下安装vsftpd并配置iptables" class="btn">下一篇</a></li></ul></div><a id="comments"></a><div id="gitalk_thread"></div><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script>(function() {
+    var gitalk = new Gitalk({
+        clientID: '42fc6cc03e9748504521',
+        clientSecret: '276e368ccf374058acd40e6e5c9dc9589e08460d',
+        repo: 'blog',
+        owner: 'sjfkai',
+        admin: 'sjfkai',
+        id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: 'true'  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk_thread')
+})();</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

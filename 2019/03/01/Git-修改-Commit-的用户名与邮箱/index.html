@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="sjfkai,sjfkai@gmail.com"><title>Git 修改 Commit 的用户名与邮箱 · Just Blog</title><meta name="description" content="对于 git 的用户名与邮箱，我们大多数人都有两套，一套公司账户平时工作用和一套个人账户用于业余项目。而我又常常在 commit 以后才发现用户名与邮箱设置错了。本文总结了如何修改 Commit 的用户名与邮箱。
+如何设置用户名与邮箱12$ git config user.name &quot;Author "><meta name="keywords" content="blog,Just Blog,sjfkai,前端,大前端,程序员"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-110880274-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-110880274-1');</script></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Just Blog</a></h3></div></div><ul class="social-links"><li><a href="http://github.com/sjfkai"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div><script>var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1267679219'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1267679219%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/logo.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Git 修改 Commit 的用户名与邮箱</a></h3></div><div class="post-content"><p>对于 git 的用户名与邮箱，我们大多数人都有两套，一套公司账户平时工作用和一套个人账户用于业余项目。而我又常常在 commit 以后才发现用户名与邮箱设置错了。本文总结了如何修改 Commit 的用户名与邮箱。</p>
+<h2 id="如何设置用户名与邮箱"><a href="#如何设置用户名与邮箱" class="headerlink" title="如何设置用户名与邮箱"></a>如何设置用户名与邮箱</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config user.name <span class="string">"Author Name"</span></span><br><span class="line">$ git config user.email email@address.com</span><br></pre></td></tr></table></figure>
+<p>上面的命令只会修改当前项目的配置。如果需要也可以增加 <code>--global</code> 选项来修改当前系统用户的默认配置。</p>
+<h2 id="修改-Commit-的用户名与邮箱"><a href="#修改-Commit-的用户名与邮箱" class="headerlink" title="修改 Commit 的用户名与邮箱"></a>修改 Commit 的用户名与邮箱</h2><p><strong>注意： 只建议修改未 push 的 commit。</strong></p>
+<p>因为修改 Commit 的用户名或邮箱会生成一个新的 commit 来替换之前的 commit 。如果在修改之前已经 push 到了远端，修改后再次 push 会出现冲突。 只能使用 <code>push -f</code>。 如果其他人已经拉取（ pull ）了旧 commit 会出现很多麻烦。</p>
+<h2 id="只修改最新的-commit"><a href="#只修改最新的-commit" class="headerlink" title="只修改最新的 commit"></a>只修改最新的 commit</h2><p>如果你只需要修改最新的 commit ，直接使用：</p>
+<pre><code>git commit --amend --author=&quot;Author Name &lt;email@address.com&gt;&quot;
+</code></pre><p>如果你已经修改了 git config 中的用户名和邮箱，也可以使用 </p>
+<pre><code>git commit --amend --reset-author --no-edit
+</code></pre><h2 id="如果要修改连续多个-commit"><a href="#如果要修改连续多个-commit" class="headerlink" title="如果要修改连续多个 commit"></a>如果要修改连续多个 commit</h2><p>比如，你的 commit 历史为 <code>A-B-C-D-E-F</code> ， F 为 <code>HEAD</code> ， 你打算修改 C 和 D 的用户名或邮箱，你需要：</p>
+<ol>
+<li>运行 <code>git rebase -i B</code> （<a href="https://help.github.com/en/articles/about-git-rebase#an-example-of-using-git-rebase" target="_blank" rel="noopener">这里有一个运行该命令后的例子（英文）</a>）<ul>
+<li>如果你需要修改 A ，可以运行 <code>git rebase -i --root</code></li>
+</ul>
+</li>
+<li>把 C 和 D 两个 commit 的那一行的 <code>pick</code> 改为 <code>edit</code> </li>
+<li>当 rebase 开始后，将会暂停在 commit C</li>
+<li>运行 <code>git commit --amend --author=&quot;Author Name &lt;email@address.com&gt;&quot;</code></li>
+<li>然后运行 <code>git rebase --continue</code></li>
+<li>将会继续暂停在 commit D</li>
+<li>再次运行 <code>git commit --amend --author=&quot;Author Name &lt;email@address.com&gt;&quot;</code></li>
+<li><code>git rebase --continue</code></li>
+<li>rebase 结束</li>
+<li>如果需要更新到远程仓库， 使用 <code>git push -f</code>（请确保修改的commit 不会影响其他人）</li>
+</ol>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commit/28845565" target="_blank" rel="noopener">Stackoverflow: How to change the commit author for one specific commit?</a></p>
+<hr>
+<p>欢迎关注公众号 “大前端开发者”。给你带来更多的前端技术与资讯</p>
+<p><img src="/images/qrcode_small.jpg" alt="qrCode"></p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-03-01</span><i class="fa fa-tag"></i><a href="/tags/git/" title="git" class="tag">git </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://blog.sjfkai.com/2019/03/01/Git-修改-Commit-的用户名与邮箱/,Just Blog,Git 修改 Commit 的用户名与邮箱,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/2019/03/13/构建-React-组件并发布到-NPM/" title="构建 React 组件并发布到 NPM" class="btn">上一篇</a></li><li class="next pagbuttons"><a role="navigation" href="/2019/01/29/HTML5-移动端自适应方案与踩坑/" title="HTML5 移动端自适应方案与踩坑" class="btn">下一篇</a></li></ul></div><a id="comments"></a><div id="gitalk_thread"></div><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script>(function() {
+    var gitalk = new Gitalk({
+        clientID: '42fc6cc03e9748504521',
+        clientSecret: '276e368ccf374058acd40e6e5c9dc9589e08460d',
+        repo: 'blog',
+        owner: 'sjfkai',
+        admin: 'sjfkai',
+        id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: 'true'  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk_thread')
+})();</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

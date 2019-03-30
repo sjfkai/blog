@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="sjfkai,sjfkai@gmail.com"><title>Linux的五个查找命令 · Just Blog</title><meta name="description" content="findfind是最常见和最强大的查找命令，你可以用它找到任何你想找的文件。find的使用格式如下：　　$ find &amp;lt;指定目录&gt; &amp;lt;指定条件&gt; &amp;lt;指定动作&gt;
+&amp;lt;指定目录\&amp;gt;： 所要搜索的目录及其所有子目录。默认为当前目录。
+&amp;lt;指定条件\&amp;gt;： 所要搜索的文件"><meta name="keywords" content="blog,Just Blog,sjfkai,前端,大前端,程序员"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-110880274-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-110880274-1');</script></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Just Blog</a></h3></div></div><ul class="social-links"><li><a href="http://github.com/sjfkai"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div><script>var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1267679219'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1267679219%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/logo.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Linux的五个查找命令</a></h3></div><div class="post-content"><h1 id="find"><a href="#find" class="headerlink" title="find"></a>find</h1><p><code>find</code>是最常见和最强大的查找命令，你可以用它找到任何你想找的文件。<br>find的使用格式如下：<br>　　<strong>$ find &lt;指定目录> &lt;指定条件> &lt;指定动作></strong></p>
+<pre><code>&lt;指定目录\&gt;： 所要搜索的目录及其所有子目录。默认为当前目录。
+&lt;指定条件\&gt;： 所要搜索的文件的特征。
+&lt;指定动作\&gt;： 对搜索结果进行特定的处理。
+</code></pre><p>如果什么参数也不加，find默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。</p>
+<p><code>find</code>的使用实例：</p>
+<pre><code>$ find . -name &apos;my\*&apos;
+</code></pre><p> 搜索当前目录（含子目录，以下同）中，所有文件名以my开头的文件。</p>
+<pre><code>$ find . -name &apos;my\*&apos; -ls
+</code></pre><p>搜索当前目录中，所有文件名以my开头的文件，并显示它们的详细信息。</p>
+<pre><code>$ find . -type f -mmin -10
+</code></pre><p>搜索当前目录中，所有过去10分钟中更新过的普通文件。如果不加<code>-type f</code>参数，则搜索普通文件+特殊文件+目录。</p>
+<h1 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h1><p><code>locate</code>命令其实是<code>find -name</code>的另一种写法，但是要比后者快得多，原因在于它不搜索具体目录，而是搜索一个数据库（/var/lib/locatedb），这个数据库中含有本地所有文件信息。Linux系统自动创建这个数据库，并且每天自动更新一次，所以使用locate命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库。</p>
+<p>locate命令的使用实例：</p>
+<pre><code>$ locate /etc/sh
+</code></pre><p>搜索etc目录下所有以sh开头的文件。</p>
+<pre><code>$ locate ~/m
+</code></pre><p>搜索用户主目录下，所有以m开头的文件。</p>
+<pre><code>$ locate -i ~/m
+</code></pre><p>搜索用户主目录下，所有以m开头的文件，并且忽略大小写。</p>
+<h1 id="whereis"><a href="#whereis" class="headerlink" title="whereis"></a>whereis</h1><p><code>whereis</code>命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文件（参数-s）。如果省略参数，则返回所有信息。</p>
+<p>whereis命令的使用实例：</p>
+<pre><code>$ whereis grep
+</code></pre><h1 id="which"><a href="#which" class="headerlink" title="which"></a>which</h1><p><code>which</code>命令的作用是，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。也就是说，使用<code>which</code>命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。</p>
+<p>which命令的使用实例：</p>
+<pre><code>$ which grep
+</code></pre><h1 id="type"><a href="#type" class="headerlink" title="type"></a>type</h1><p><code>type</code>命令其实不能算查找命令，它是用来区分某个命令到底是由shell自带的，还是由shell外部的独立二进制文件提供的。如果一个命令是外部命令，那么使用-p参数，会显示该命令的路径，相当于which命令。</p>
+<p>type命令的使用实例：</p>
+<pre><code>$ type cd
+</code></pre><p>系统会提示，cd是shell的自带命令（build-in）。</p>
+<pre><code>$ type grep
+</code></pre><p>系统会提示，grep是一个外部命令，并显示该命令的路径。</p>
+<pre><code>$ type -p grep
+</code></pre><p>加上<code>-p</code>参数后，就相当于<code>which</code>命令。</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2015-02-27</span><i class="fa fa-tag"></i><a href="/tags/linux/" title="linux" class="tag">linux </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://blog.sjfkai.com/2015/02/27/linux-search/,Just Blog,Linux的五个查找命令,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/2015/03/06/select-license/" title="如何选择开源许可证(license)" class="btn">上一篇</a></li><li class="next pagbuttons"><a role="navigation" href="/2015/01/24/require/" title="掉入循环require()的坑" class="btn">下一篇</a></li></ul></div><a id="comments"></a><div id="gitalk_thread"></div><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script>(function() {
+    var gitalk = new Gitalk({
+        clientID: '42fc6cc03e9748504521',
+        clientSecret: '276e368ccf374058acd40e6e5c9dc9589e08460d',
+        repo: 'blog',
+        owner: 'sjfkai',
+        admin: 'sjfkai',
+        id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: 'true'  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk_thread')
+})();</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

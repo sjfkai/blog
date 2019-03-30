@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="sjfkai,sjfkai@gmail.com"><title>955.HOLIDAY 从0到1 · Just Blog</title><meta name="description" content="一个静态网站（955.holiday），从域名申请到上线发布的全过程。
+背景996.ICU 一夜之间火爆了码农圈。当然也成了我们的饭桌话题。同事说：“朝九晚五”的公司也不在少数，我们可以同样做一个类似的网站来让一些正能量的公司得到曝光。
+于是 955.holiday 就出现了。
+Github（求st"><meta name="keywords" content="blog,Just Blog,sjfkai,前端,大前端,程序员"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-110880274-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-110880274-1');</script></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Just Blog</a></h3></div></div><ul class="social-links"><li><a href="http://github.com/sjfkai"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div><script>var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1267679219'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1267679219%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/logo.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>955.HOLIDAY 从0到1</a></h3></div><div class="post-content"><p>一个静态网站（955.holiday），从域名申请到上线发布的全过程。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><a href="https://996.icu" target="_blank" rel="noopener">996.ICU</a> 一夜之间火爆了码农圈。当然也成了我们的饭桌话题。同事说：“朝九晚五”的公司也不在少数，我们可以同样做一个类似的网站来让一些正能量的公司得到曝光。</p>
+<p>于是 <a href="https://955.holiday" target="_blank" rel="noopener">955.holiday</a> 就出现了。</p>
+<p>Github（求star）: <a href="https://github.com/955holiday/955.holiday" target="_blank" rel="noopener">https://github.com/955holiday/955.holiday</a></p>
+<p>它是如何一步步上线的呢？下面进入正题：</p>
+<h2 id="域名申请"><a href="#域名申请" class="headerlink" title="域名申请"></a>域名申请</h2><p><em>tips: 你也可以跳过此步，直接使用 github 提供的默认访问地址</em></p>
+<p>当你有一个好的 <code>idea</code> ，第一时间就要去看一看合适的域名有没有被注册。</p>
+<p>推荐两个注册域名的网站：</p>
+<p>国内服务商：<a href="https://wanwang.aliyun.com/" target="_blank" rel="noopener">阿里云</a></p>
+<p>  <strong>优点：</strong> 相对便宜、备案方便  <strong>缺点：</strong> 需要实名认证</p>
+<p>国外服务商：<a href="https://sg.godaddy.com/zh/" target="_blank" rel="noopener">GoDaddy</a></p>
+<p>  <strong>优点：</strong> 无须实名认证、支持支付宝 <strong>缺点：</strong> 价格偏高</p>
+<p>如果你有备案的需求，就选择阿里云吧，当然并不是所有的域名都可以备案的，哪些域名可以备案请查询：<a href="http://xn--eqrt2g.xn--vuq861b/#" target="_blank" rel="noopener">工业和信息化部域名行业管理信息公示</a></p>
+<p>如果没有备案需求，价格相差又不是很多，就选择 GoDaddy 吧。</p>
+<h2 id="创建github-pages"><a href="#创建github-pages" class="headerlink" title="创建github pages"></a>创建github pages</h2><p><a href="https://pages.github.com/" target="_blank" rel="noopener">github pages</a> 可以为我们每个 git 仓库提供静态网站的托管功能。</p>
+<p>下面让我们创建一个可访问的静态网站：</p>
+<h3 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h3><p>首先需要为我们的网站新建一个仓库（New repository）,比如： <code>hello-pages</code></p>
+<img src="/2019/03/30/955-HOLIDAY-从0到1/create_repo.png" title="create_repo">
+<h3 id="生成静态网站"><a href="#生成静态网站" class="headerlink" title="生成静态网站"></a>生成静态网站</h3><p>然后让我们在本地生成一个静态网站</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir hello-pages &amp;&amp; cd hello-pages</span><br></pre></td></tr></table></figure>
+<p>新建 <code>index.html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>hello pages<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    hello pages</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在本地构建 git repo 并上传到 github</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"# hello-pages"</span> &gt;&gt; README.md <span class="comment"># 增加 readme 文件</span></span><br><span class="line">$ git init</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"first commit"</span></span><br><span class="line">$ git remote add origin git@github.com:&lt;your-name&gt;/hello-pages.git <span class="comment"># 这里要修改为你自己的仓库地址</span></span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>访问github，打开 hello-pages 仓库，确保我们的项目已经推送了上去。</p>
+<h3 id="开启-github-pages"><a href="#开启-github-pages" class="headerlink" title="开启 github pages"></a>开启 github pages</h3><p>在 github hello-pages 项目页面点击 <code>Setting</code>，向下找到 <code>GitHub Pages</code> -&gt; <code>Source</code> 选择 <code>master branch</code></p>
+<p>页面刷新，返回 <code>GitHub Pages</code> 显示发布成功。页面可以正常访问了。</p>
+<img src="/2019/03/30/955-HOLIDAY-从0到1/enable_pages.png" title="enable_pages">
+<p><a href="https://github.com/sjfkai/hello-pages/tree/init" target="_blank" rel="noopener">你可以在这里查看此阶段源码</a></p>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><p>至此，我们的 <code>hello-pages</code> 已经可以正常访问了，只不过访问地址还是 github 的域名。</p>
+<p>下面我们进一步将域名解析到我们的网站。</p>
+<h3 id="配置DNS"><a href="#配置DNS" class="headerlink" title="配置DNS"></a>配置DNS</h3><p>在你购买域名的网站，找到域名的DNS解析配置页面，根据你的需求，选择以下一种配置方式。（各网站解析记录配置方式可能略有不同，请查看站内帮助）</p>
+<h4 id="1-访问地址为顶级域名"><a href="#1-访问地址为顶级域名" class="headerlink" title="1. 访问地址为顶级域名"></a>1. 访问地址为顶级域名</h4><p>如：example.com</p>
+<p>新建 <code>A</code> 记录，将记录指向下面四个ip</p>
+<pre><code>185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+</code></pre><p>详细信息，请参考：<a href="https://help.github.com/en/articles/setting-up-an-apex-domain" target="_blank" rel="noopener">Setting up an apex domain</a></p>
+<h4 id="2-访问地址为二级域名"><a href="#2-访问地址为二级域名" class="headerlink" title="2. 访问地址为二级域名"></a>2. 访问地址为二级域名</h4><p>如：<a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> blog.example.com</p>
+<p>新建 <code>CNAME</code> 记录， 将记录指向 <code>&lt;your-github-name&gt;.github.io</code> </p>
+<p>详细信息，请参考：<a href="https://help.github.com/en/articles/setting-up-a-custom-subdomain" target="_blank" rel="noopener">Setting up a custom subdomain</a></p>
+<h4 id="3-访问地址为顶级域名和www二级域名"><a href="#3-访问地址为顶级域名和www二级域名" class="headerlink" title="3. 访问地址为顶级域名和www二级域名"></a>3. 访问地址为顶级域名和www二级域名</h4><p>如 example.com 和 <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> 可以同时访问 ，但是这里的二级域名只能是 <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a></p>
+<p>这种方式需要同时配置上面的 <code>1</code> 和 <code>2</code></p>
+<p>详细信息，请参考：<a href="https://help.github.com/en/articles/setting-up-an-apex-domain-and-www-subdomain" target="_blank" rel="noopener">Setting up an apex domain and www subdomain</a></p>
+<h3 id="增加CNAME文件"><a href="#增加CNAME文件" class="headerlink" title="增加CNAME文件"></a>增加CNAME文件</h3><p>在git仓库中新增 <code>CNAME</code> 文件，内容为自定义域名的访问地址。</p>
+<p>请注意，该文件只能包含唯一一个地址。</p>
+<p>如果的 DNS 配置为<code>顶级域名</code>和 <code>www 二级域名</code>可以同时访问，CNAME 中只需要填写 <code>顶级域名</code>即可。</p>
+<p>将修改 <code>push</code> 到 github</p>
+<h3 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h3><p>访问你配置的地址，页面应该已经可以打开了。</p>
+<p>DNS解析是有延迟的，如果无法打开，可能需要稍等片刻。</p>
+<p>如果长时间依旧无法打开，就需要排查一下是不是哪一步除了问题。</p>
+<h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><p>GitHub Pages 同时支持 http 和 https 协议，但是并不会自动跳转。</p>
+<p>我们可以通过配置，强制跳转到 https 站点。</p>
+<p>在 github hello-pages 项目页面点击 <code>Setting</code>，向下找到 <code>GitHub Pages</code> 勾选 <code>Enforce HTTPS</code></p>
+<p>至此，你已经可以通过修改 <code>HTML</code>, 增加 <code>CSS</code> 来美化你的网站了。</p>
+<p><a href="https://github.com/sjfkai/hello-pages/tree/custom-domain" target="_blank" rel="noopener">你可以在这里查看此阶段源码</a></p>
+<h2 id="自动构建并发布"><a href="#自动构建并发布" class="headerlink" title="自动构建并发布"></a>自动构建并发布</h2><p>现如今，大多数的前端项目都是基于框架（比如 <code>React</code> 、 <code>VUE</code>）构建的。</p>
+<p>对于这些项目，我们需要通过 <code>build</code> 才能产生浏览器可以解析的 <code>HTML</code> 、 <code>CSS</code> 、 <code>JS</code>.</p>
+<p>如果每次项目变动，我们都需要修改源码，然后 <code>build</code>，然后再将 <code>build</code> 结果推送到 <code>github-pages</code> 项目。其实还是很繁琐的。</p>
+<p>我们能不能减少这些无畏的工作量呢？</p>
+<p>答案是有的</p>
+<h3 id="使用gh-pages分支"><a href="#使用gh-pages分支" class="headerlink" title="使用gh-pages分支"></a>使用gh-pages分支</h3><p>GitHub Pages 允许将静态文件放在三个地方：</p>
+<ol>
+<li>master 分支</li>
+<li>master 分支的 docs 目录下</li>
+<li>gh-pages 分支</li>
+</ol>
+<p>我们可以将项目源码放在 <code>master</code> 分支下，将 <code>build</code> 结果放在 <code>gh-pages</code> 分支, 每次<code>build</code>完成后，更新 <code>gh-pages</code> 分支。</p>
+<p>如果上述操作依旧通过手动执行的话，其实并不会减少什么工作量。</p>
+<p>我们需要借助<code>持续集成服务</code>（Continuous Integration，简称 CI）来实现进一步的自动化。</p>
+<h3 id="使用-Travis-CI-自动部署"><a href="#使用-Travis-CI-自动部署" class="headerlink" title="使用 Travis CI 自动部署"></a>使用 Travis CI 自动部署</h3><pre><code>Travis CI 提供的是持续集成服务（Continuous Integration，简称 CI）。它绑定 Github 上面的项目，只要有新的代码，就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，还能部署到服务器。
+</code></pre><p>了解<a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI</a>可以参考官方文档，也可以阅读阮一峰的<a href="http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html" target="_blank" rel="noopener">持续集成服务 Travis CI 教程</a>。</p>
+<p>每当我们 push 代码到 github 时，可以借助 Travis CI 自动 build 并将 build 结果更新到 gh-pages 分支。刚好 <code>Travis CI</code> 也提供了这样的功能。 详见：<a href="https://docs.travis-ci.com/user/deployment/pages/" target="_blank" rel="noopener">GitHub Pages Deployment</a></p>
+<p>接下来我们就开始操作了</p>
+<h4 id="创建-GitHub-access-token"><a href="#创建-GitHub-access-token" class="headerlink" title="创建 GitHub access_token"></a>创建 GitHub access_token</h4><p>点击右上角自己的头像 -&gt; <code>Settings</code> -&gt; <code>Developer settings</code> -&gt; <code>Personal access tokens</code> -&gt; <code>Generage new token</code></p>
+<p>填写 <code>Token description</code></p>
+<p>勾选 <code>repo</code> 确认创建</p>
+<p><code>access_token</code> 创建成功，临时保存一下，后面会用到。</p>
+<h4 id="设置-Travis-CI"><a href="#设置-Travis-CI" class="headerlink" title="设置 Travis CI"></a>设置 Travis CI</h4><ul>
+<li><p>使用 <code>Github</code> 账号登录 <a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI</a></p>
+</li>
+<li><p>点击 <code>+</code> </p>
+</li>
+<li><p>点击 <code>Sync account</code></p>
+</li>
+<li><p>打开 hello-pages 项目仓库的开关。</p>
+</li>
+<li><p>点击 <code>Setting</code> </p>
+</li>
+<li><p>关闭 <code>Build pushed pull requests</code></p>
+</li>
+<li><p><code>Environment Variables</code> 下面新增一项 <code>name</code>为 GIT_REPO <code>Value</code>为刚刚申请的 <code>access_token</code></p>
+</li>
+</ul>
+<h4 id="修改项目"><a href="#修改项目" class="headerlink" title="修改项目"></a>修改项目</h4><p>我们继续在之前的 hello-pages 项目上继续修改，这里以 <code>React</code> 项目为例</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm i create-react-app -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># create-react-app 创建项目前，需要删除之前的文件</span></span><br><span class="line">$ rm -rf index.html CNAME</span><br><span class="line"></span><br><span class="line">$ create-react-app .</span><br></pre></td></tr></table></figure>
+<p>在 <code>public</code> 下面新建和之前一样的 <code>CNAME</code> 文件。 目的是为了最终 <code>build</code> 目录包含 <code>CNAME</code> 文件。</p>
+<p>新建 <code>travis.yml</code></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">node_js</span></span><br><span class="line"><span class="attr">node_js:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">"10"</span></span><br><span class="line"><span class="attr">install:</span> <span class="string">yarn</span></span><br><span class="line"></span><br><span class="line"><span class="attr">script:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  provider:</span> <span class="string">pages</span></span><br><span class="line"><span class="attr">  local_dir:</span> <span class="string">./build</span></span><br><span class="line"><span class="attr">  skip_cleanup:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  github_token:</span> <span class="string">$REPO_TOKEN</span></span><br><span class="line"><span class="attr">  keep_history:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  on:</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<p>更改完成后，<code>commit</code>，然后推送到 github 。</p>
+<p>稍等片刻，就可以在 Travis CI 看到项目已经开始构建了。构建成功后 <code>gh-pages</code> 分支就已经自动推送到 github 了。</p>
+<p>回到 github hello-pages 项目页面点击 <code>Setting</code>，向下找到 <code>GitHub Pages</code> -&gt; <code>Source</code> 选择 <code>gh-pages branch</code>。</p>
+<p>切换成功后就可以正常访问了。</p>
+<p><a href="https://github.com/sjfkai/hello-pages" target="_blank" rel="noopener">最终代码</a></p>
+<h2 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h2><p><code>Github pages</code> 虽好，但一直有一个头疼的问题，就是网站无法被百度收录。据说是因为 Github 屏蔽了百度爬虫。</p>
+<p>有搜索需求的可以考虑使用 <a href="https://coding.net/" target="_blank" rel="noopener">coding.net</a>。功能基本上和 github 是一致的，这里就不做深入介绍了。</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-03-30</span><i class="fa fa-tag"></i><a href="/tags/前端/" title="前端" class="tag">前端 </a><a href="/tags/Github/" title="Github" class="tag">Github </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://blog.sjfkai.com/2019/03/30/955-HOLIDAY-从0到1/,Just Blog,955.HOLIDAY 从0到1,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2019/03/13/构建-React-组件并发布到-NPM/" title="构建 React 组件并发布到 NPM" class="btn">下一篇</a></li></ul></div><a id="comments"></a><div id="gitalk_thread"></div><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script>(function() {
+    var gitalk = new Gitalk({
+        clientID: '42fc6cc03e9748504521',
+        clientSecret: '276e368ccf374058acd40e6e5c9dc9589e08460d',
+        repo: 'blog',
+        owner: 'sjfkai',
+        admin: 'sjfkai',
+        id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: 'true'  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk_thread')
+})();</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="sjfkai,sjfkai@gmail.com"><title>HTML5 移动端自适应方案与踩坑 · Just Blog</title><meta name="description" content="最近刚接触前端开发，接手了一个移动端H5项目。着实体会掉了前端的坑之多，和H5移动端的坑之多多。
+如今项目告一段落，在这里做一总结
+屏幕自适应方案介绍方案之前，首先还是交代一下项目背景与需求，毕竟一切方案也不能脱离实际需求。
+需求与背景
+设备宽度 &amp;gt; 800px， body宽度为800px
+3"><meta name="keywords" content="blog,Just Blog,sjfkai,前端,大前端,程序员"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-110880274-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-110880274-1');</script></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Just Blog</a></h3></div></div><ul class="social-links"><li><a href="http://github.com/sjfkai"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div><script>var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1267679219'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1267679219%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/logo.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>HTML5 移动端自适应方案与踩坑</a></h3></div><div class="post-content"><p>最近刚接触前端开发，接手了一个移动端H5项目。着实体会掉了前端的坑之多，和H5移动端的坑之多多。</p>
+<p>如今项目告一段落，在这里做一总结</p>
+<h2 id="屏幕自适应方案"><a href="#屏幕自适应方案" class="headerlink" title="屏幕自适应方案"></a>屏幕自适应方案</h2><p>介绍方案之前，首先还是交代一下项目背景与需求，毕竟一切方案也不能脱离实际需求。</p>
+<h3 id="需求与背景"><a href="#需求与背景" class="headerlink" title="需求与背景"></a>需求与背景</h3><ul>
+<li>设备宽度 &gt; 800px， body宽度为800px</li>
+<li>320px &lt; 设备宽度 &lt; 800px， 宽度根据设备宽度自适应</li>
+<li>设备宽度 &gt; 320px, body宽度为320px</li>
+<li>大部分字体不随宽度变化而缩放</li>
+<li>设计图宽度：1080px </li>
+</ul>
+<h3 id="自适应方案"><a href="#自适应方案" class="headerlink" title="自适应方案"></a>自适应方案</h3><p>关于自适应方案，google一搜就会有很多结果，但是总的来说个人认为最有用的还是手淘的大漠写的一系列文章，后面会给出原文链接。总的来说主流的方案有<code>rem</code>和<code>vh</code>两种。</p>
+<h4 id="REM（flexible）"><a href="#REM（flexible）" class="headerlink" title="REM（flexible）"></a>REM（flexible）</h4><p><code>rem</code>（font size of the root element）是指相对于根元素的字体大小的单位。简单的说它就是一个相对单位。看到<code>rem</code>大家一定会想起<code>em</code>单位，<code>em</code>（font size of the element）是指相对于父元素的字体大小的单位。它们之间其实很相似，只不过一个计算的规则是依赖根元素一个是依赖父元素计算。</p>
+<p>所以简而言之，就是根据屏幕宽度设置 <code>html</code> 标签的 <code>font-size</code>。 再在布局时使用 <code>rem</code> 单位来布局，就可以达到自适应的目的。</p>
+<p>使用此方案，可以借助手淘的开源项目<a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">lib-flexible</a>。它可以自定帮你设置<code>html</code> 标签的 <code>font-size</code>等。将<code>1rem</code>设置为屏幕的<code>1/10</code>。</p>
+<p>关于 <code>rem</code> 方案，大漠老师在<a href="https://github.com/amfe/article/issues/17" target="_blank" rel="noopener">使用Flexible实现手淘H5页面的终端适配</a>中进行了详细的介绍。建议大家阅读一下。</p>
+<p>如你所见，大漠老师也在近期对文正进行了更新，建议大家使用更方便的 <code>vw</code> 方案。</p>
+<h4 id="VW"><a href="#VW" class="headerlink" title="VW"></a>VW</h4><p><code>vw</code> 是视口宽度的1/100，用 <code>vw</code> 来做自适应再合适不过了。 </p>
+<p>比如如果你的设计图是 <code>750px</code> 的宽度。 对于 <code>75px</code> 的元素就可以设置为 <code>10vw</code>。 这样在宽度为 <code>375px</code> 的手机上的表现就是<code>37.5px</code>。</p>
+<p>当然，如果我们把每个 <code>px</code> 标注都手动转换的话，那也是很大的工作量，<br><a href="https://www.npmjs.com/package/postcss-px-to-viewport" target="_blank" rel="noopener">postcss-px-to-viewport</a>可以自定帮你转换为 <code>vw</code>。 你只需要在配置时指定设计图宽度就可以了。</p>
+<p>同样，强烈建议你去阅读以下大漠老师关于 <code>vw</code> 布局的文章 <a href="https://www.w3cplus.com/css/vw-for-layout.html" target="_blank" rel="noopener">再聊移动端页面的适配</a></p>
+<h4 id="我的方案-vw-rem"><a href="#我的方案-vw-rem" class="headerlink" title="我的方案 vw + rem"></a>我的方案 vw + rem</h4><p><code>vw</code> 虽好，可惜却无法满足我的需求。因为 <code>vw</code> 是整个视口宽度的1%，如果单纯采用 <code>vw</code> 方案，是无法限制最大、最小宽度的。</p>
+<p>于是我便采用了 <code>vw</code> + <code>rem</code>。 类似于<br>如果屏幕宽度在需要自适应的宽度之内，则将<code>html</code> 标签的 <code>font-size</code>设置为 <code>10vw</code>。如果屏幕宽度超过最大或最小限制的话。则将<code>html</code> 标签的 <code>font-size</code>设置为固定值。类似于<code>lib-flexible</code>，我们将<code>1rem</code>设为了屏幕的<code>1/10</code>。</p>
+<p>具体 css 如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">10vw</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> screen and (max-width: <span class="number">320px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">32px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">min-width</span>: <span class="number">320px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">800px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">80px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">800px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，这样在布局时，我们就需要使用<code>rem</code>单位来布局了。 当然设计图标注<code>px</code>转<code>rem</code>单位同样有现成的工具。博主使用的是<a href="https://github.com/cuth/postcss-pxtorem" target="_blank" rel="noopener">postcss-pxtorem</a>。</p>
+<p>最终的效果：</p>
+<img src="/2019/01/29/HTML5-移动端自适应方案与踩坑/效果.gif" title="效果图">
+<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><p>以上介绍的适配方案，基本上就可以满足大部分的需求了。 下面我们来聊一聊我都遇到了哪些坑。</p>
+<h3 id="小数像素问题"><a href="#小数像素问题" class="headerlink" title="小数像素问题"></a>小数像素问题</h3><p>由于我们的方案，所有元素根据屏幕宽度来自适应。因而很难保证转换后的像素为整数像素。</p>
+<p>在未接触前端，或者说H5开发之前并没有认真考虑过小数像素的问题，最初以为就是在可现实的精度上四舍五入。真正开发时发现并不是这样的。</p>
+<p>比如下面这个例子，同样的像素值表现就不一样：<a href="https://codesandbox.io/s/l2qm5yn6z7" target="_blank" rel="noopener">源码地址</a></p>
+<img src="/2019/01/29/HTML5-移动端自适应方案与踩坑/小数像素.png" title="小数像素">
+<p><code>IOS</code>、<code>macOS</code>设备最小像素好像支持到了0.5px，所以上面的例子在苹果设备上表现并不是很明显。</p>
+<p>但是毕竟大部分设备还是<code>Android</code>和<code>windows</code>系统。</p>
+<p>那么，到底浏览器是如何处理小数像素的呢？ <a href="http://taobaofed.org/blog/2015/11/04/mobile-rem-problem/" target="_blank" rel="noopener">rem 产生的小数像素问题</a> 这篇文章给出了答案：</p>
+<pre><code>浏览器在渲染时所做的舍入处理只是应用在元素的渲染尺寸上，其真实占据的空间依旧是原始大小。
+也就是说如果一个元素尺寸是 0.625px，那么其渲染尺寸应该是 1px，空出的 0.375px 空间由其临近的元素填充；同样道理，如果一个元素尺寸是 0.375px，其渲染尺寸就应该是 0，但是其会占据临近元素 0.375px 的空间。
+</code></pre><p>那么在我们的方案里会出现什么问题呢？</p>
+<ol>
+<li>缩放到低于1px的元素会时隐时现</li>
+<li>两个同样宽度的元素因为各自周围的元素宽度不同，导致两元素相差1px</li>
+<li>宽高相同的正方形，长宽不相等了</li>
+<li><code>border-radius: 50%</code> 画的圆不圆了</li>
+</ol>
+<p>对于第一个问题，一般都会出现在标注为<code>1px</code>的地方。所以大部分的插件 <a href="https://github.com/cuth/postcss-pxtorem" target="_blank" rel="noopener">postcss-pxtorem</a> 或者 <a href="https://www.npmjs.com/package/postcss-px-to-viewport" target="_blank" rel="noopener">postcss-px-to-viewport</a> 都提供了最小转换像素的选项。 我们只要指定最小转换像素，对于比较小的像素（如：<code>1px</code>），就不转换为<code>rem</code>或<code>vw</code>了。当然<code>1px</code>在视网膜屏同样存在过粗的问题，我们在之后会讨论。</p>
+<p>对于剩下的几个问题，目前本人也没找到特别好的办法，毕竟很多地方相差<code>1px</code>是可以接受的。只有一些比较小的元素会表现的比较明显，本人的解决办法是不通过插件自动转换为<code>rem</code>或<code>vw</code>，而是通过<code>js</code>根据设备宽度，计算出该元素在该设备下实际的<code>px</code>。取整后动态地设置到元素的<code>style</code>上。这样就不会出现上述问题了。</p>
+<p>如果各位有更好的解决方案的话。欢迎浏览讨论。</p>
+<h3 id="1px问题"><a href="#1px问题" class="headerlink" title="1px问题"></a>1px问题</h3><p>由于上面小数像素的问题，我们并没有对<code>1px</code>的元素进行转换，所以对于<code>750px</code>的设计图上<code>1px</code>的细线，在屏幕宽度为<code>375px</code>的<code>iphone6</code>上依旧为<code>1px</code>，按比例应该是<code>0.5px</code>。所以设计同学会问：“为什么这条细线变粗了？” 我们也很无奈啊，因为<code>0.5px</code>显不出来啊……</p>
+<p>但是转念一想，对于<code>DPR=2</code>甚至更高的设备，<code>1px</code>是由多个物理像素渲染的，其实是可以显示更细的线的。那么这样才能画出更细的线呢？</p>
+<p>大漠老师又出场了，<a href="https://www.w3cplus.com/css/fix-1px-for-retina.html" target="_blank" rel="noopener">《再谈Retina下1px的解决方案》</a>中给出了几种方案：</p>
+<ol>
+<li><code>viewport</code>放大为<code>device-width</code>的<code>dpr</code>倍数，然后缩小<code>1/dpr</code>倍显示</li>
+<li><code>border-image</code>设为一个一半透明一半显示的图片，以达到将边框一分为二的目的</li>
+<li>同样是上面的原理，但是使用<code>svg</code>绘制图片</li>
+<li>媒体查询配合伪元素，为伪元素设置<code>1px</code>的边框，然后缩小<code>1/dpr</code>倍显示</li>
+</ol>
+<p>以上方案各有各的特点，2、3两个方案画出来的其实是<code>0.5px</code>，而1、4两个方案画出来的更接近<code>物理像素的1px</code></p>
+<h3 id="cursor-pointer-元素点击背景变色的问题"><a href="#cursor-pointer-元素点击背景变色的问题" class="headerlink" title="cursor:pointer 元素点击背景变色的问题"></a>cursor:pointer 元素点击背景变色的问题</h3><p>对于添加了 <code>cursor:pointer</code> 属性的元素，在移动端点击时，背景会高亮。</p>
+<p>为元素添加 <code>-webkit-tap-highlight-color: transparent;</code> 属性可以隐藏背景高亮。</p>
+<h3 id="Android浏览器下line-height垂直居中偏离的问题"><a href="#Android浏览器下line-height垂直居中偏离的问题" class="headerlink" title="Android浏览器下line-height垂直居中偏离的问题"></a>Android浏览器下line-height垂直居中偏离的问题</h3><p>我们常用的垂直居中方式就是使用<code>line-height</code>，但是这种方法在<code>Android</code>设备下并不能完全居中。</p>
+<p>具体原因是因为<code>Android</code>中文字体排版的问题，可以参考 <a href="https://www.zhihu.com/question/39516424/answer/274374076" target="_blank" rel="noopener">知乎：Android浏览器下line-height垂直居中为什么会偏离？</a></p>
+<p>通过设置字体，确实能够解决一部分偏离的问题。但仍然会出现一些略微偏离的情况，据说与行高奇数偶数有关。不过已经不太容易分辨了，如果还是不能接受的话建议通过设置上下padding的方式进行垂直居中，再根据具体情况进行微调。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://github.com/amfe/article/issues/17" target="_blank" rel="noopener">使用Flexible实现手淘H5页面的终端适配</a></li>
+<li><a href="https://www.w3cplus.com/css/vw-for-layout.html" target="_blank" rel="noopener">再聊移动端页面的适配</a></li>
+<li><a href="http://taobaofed.org/blog/2015/11/04/mobile-rem-problem/" target="_blank" rel="noopener">rem 产生的小数像素问题</a> </li>
+<li><a href="https://www.w3cplus.com/css/fix-1px-for-retina.html" target="_blank" rel="noopener">再谈Retina下1px的解决方案</a></li>
+<li><a href="https://www.zhihu.com/question/39516424/answer/274374076" target="_blank" rel="noopener">Android浏览器下line-height垂直居中为什么会偏离？</a></li>
+</ul>
+<hr>
+<p>欢迎关注公众号 “大前端开发者”。给你带来更多的前端技术与资讯</p>
+<p><img src="/images/qrcode_small.jpg" alt="qrCode"></p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-01-29</span><i class="fa fa-tag"></i><a href="/tags/前端/" title="前端" class="tag">前端 </a><a href="/tags/html/" title="html" class="tag">html </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://blog.sjfkai.com/2019/01/29/HTML5-移动端自适应方案与踩坑/,Just Blog,HTML5 移动端自适应方案与踩坑,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/2019/03/01/Git-修改-Commit-的用户名与邮箱/" title="Git 修改 Commit 的用户名与邮箱" class="btn">上一篇</a></li><li class="next pagbuttons"><a role="navigation" href="/2018/10/18/Highcharts-XSS漏洞简析与修复/" title="Highcharts XSS攻击简析与修复" class="btn">下一篇</a></li></ul></div><a id="comments"></a><div id="gitalk_thread"></div><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script>(function() {
+    var gitalk = new Gitalk({
+        clientID: '42fc6cc03e9748504521',
+        clientSecret: '276e368ccf374058acd40e6e5c9dc9589e08460d',
+        repo: 'blog',
+        owner: 'sjfkai',
+        admin: 'sjfkai',
+        id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: 'true'  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk_thread')
+})();</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
